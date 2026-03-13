@@ -1,0 +1,368 @@
+/* Cores das roles */
+.Tank { background-color: #6e1a14; }
+.Healer { background-color: #13870c; }
+.Nameless { background-color: #1f5294; }
+.Dualblade { background-color: #720ac7; }
+.Fanbrella { background-color: #0b4a08; }
+.Everspring { background-color: #471173; }
+
+body {
+  font-family: 'Open Sans', Arial, sans-serif;
+  margin: 0;
+  background: #2a2a2a;
+}
+
+header {
+  background: linear-gradient(90deg, #111, #222);
+  color: #f5f5f5;
+  text-align: center;
+  padding: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+button {
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: background 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 6px; /* espaço entre ícone e texto */
+}
+
+button:hover, .csv-upload:hover {
+  background-color: #1e4a20;
+}
+
+button i {
+  font-size: 16px; /* tamanho do ícone */
+}
+
+.actions {
+  margin-left: 10px;
+  display: flex;
+  gap: 6px;
+}
+
+.edit-form {
+  margin-top: 5px;
+}
+
+/* Board sempre no topo */
+#board {
+  margin-bottom: 20px; /* separa visualmente o board da parte de cadastro */
+}
+
+/* Contêiner para Cadastro e Inscritos empilhados */
+#cadastro-inscritos {
+  display: flex;
+  flex-direction: column; /* empilha os blocos verticalmente */
+  gap: 20px; /* espaço entre Cadastro e Inscritos */
+  align-items: center; /* centraliza todo o conteúdo */
+}
+
+/* Cadastro */
+#cadastro {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center; /* centraliza os elementos */
+}
+
+#cadastro input,
+#cadastro select {
+  padding: 6px;
+  font-size: 14px;
+}
+
+#cadastro button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Inscritos */
+#inscritos {
+  margin-top: 10px;
+  text-align: center; /* centraliza o conteúdo */
+}
+
+.inscritos-header {
+  display: flex;
+  justify-content: center; /* centraliza título e botão CSV */
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.csv-upload {
+  background-color: #4CAF50;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.csv-upload i {
+  margin-left: 4px;
+}
+
+#candidates {
+  margin-top: 10px;
+  display: flex;              /* coloca os inscritos lado a lado */
+  flex-wrap: wrap;            /* permite quebrar linha se não couber */
+  justify-content: center;    /* centraliza horizontalmente */
+  gap: 1px;                   /* espaço menor entre os inscritos */
+}
+
+.candidate {
+	margin: 8px;
+	color: white;
+  flex: 0 0 auto;             /* impede que o item estique */
+  min-width: 100px;            /* largura mínima menor */
+  max-width: 120px;           /* limite para não ficar muito largo */
+  padding: 6px;               /* reduz padding interno */
+  font-size: 12px;            /* texto menor */
+	font-weight: bold;
+  text-align: center;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+	cursor: grab;
+	display: flex;
+  align-items: center;
+	justify-content: space-between; /* nome à esquerda, ícone à direita */
+  gap: 6px;
+}
+
+.candidate img {
+  width: 24px;
+  height: 24px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.candidate span {
+  vertical-align: middle;
+  font-weight: bold;
+}
+
+table {
+  border-collapse: collapse;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-radius: 2px;
+  overflow: hidden;
+	background: #757474;
+  color: #f5f5f5;
+}
+
+th, td {
+	color: #f5f5f5;
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+  width: 235px;
+  height: 25px;
+	font-size: 16px;
+}
+
+th {
+  background-color: #5c5c5c;
+  font-weight: bold;
+}
+
+td {
+  border-radius: 2px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+td img {
+  width: 28px;
+  height: 28px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+td div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+td:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 6px rgba(0,0,0,0.3);
+  cursor: pointer;
+}
+
+td.over {
+  background-color: #d0e7ff !important;
+  color: #333 !important;
+}
+
+#div-board {
+  display: flex;
+  justify-content: center;   /* centraliza horizontalmente */
+  align-items: center;   /* alinha pelo centro da tabela */
+  gap: 20px;                 /* espaço entre tabela e coluna de botões */
+  margin-top: 20px;
+}
+
+#board {
+  margin-right: 20px; /* espaço entre a tabela e o botão */
+}
+
+.board-actions {
+  display: flex;
+  flex-direction: column; /* empilha os botões na vertical */
+  gap: 10px;              /* espaço entre eles */
+  align-items: center;    /* centraliza os botões na coluna */
+}
+
+.candidate span, td span {
+  color: #f5f5f5;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+}
+
+.action-icon {
+  font-size: 18px;
+  color: #333;
+  margin: 0 6px;
+  cursor: pointer;
+  transition: color 0.3s, transform 0.2s;
+}
+
+.action-icon:hover {
+  color: #007bff; /* azul ao passar o mouse */
+  transform: scale(1.2);
+}
+
+.clear-btn {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background-color 0.3s;
+}
+
+.clear-btn i {
+  font-size: 16px;
+}
+
+.export-btn {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background-color 0.3s;
+}
+
+.export-btn i {
+  font-size: 16px;
+}
+
+.add-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-btn i {
+  font-size: 16px;
+}
+
+.edit-btn {
+  background-color: #4CAF50; /* verde igual ao CSV */
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-btn i {
+  font-size: 16px;
+}
+
+.save-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.save-btn i {
+  font-size: 16px;
+}
+
+.modal {
+  display: none; /* escondido por padrão */
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background: #2a2a2a;
+  margin: 8% auto;
+  padding: 20px;
+  border-radius: 2px;
+  width: 500px; /* largura maior */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.modal-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 5px;
+}
+
+.modal-row input,
+.modal-row select {
+  padding: 6px;
+  font-size: 14px;
+}
+
+.modal h3 {
+	color: #f5f5f5;
+}
+
+.close {
+	color: #f5f5f5;
+  float: right;
+  font-size: 22px;
+  cursor: pointer;
+}

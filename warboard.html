@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>War Board</title>
+  
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header>WAR BOARD</header>
+  
+  <div class="layout">
+    <!-- Board primeiro -->
+		<div id="div-board">
+			<table id="board">
+				<thead>
+					<tr>
+						<th>DEFESA 1</th>
+						<th>DEFESA 2</th>
+						<th>DEFESA JUNGLE</th>
+						<th>ATAQUE 1</th>
+						<th>ATAQUE 2</th>
+						<th>ATAQUE JUNGLE</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+					<tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+					<tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+					<tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+					<tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+				</tbody>
+			</table>
+				<div class="board-actions">
+					<button class="clear-btn" onclick="clearBoard()">
+						<i class="fa fa-broom"></i>
+					</button>
+					<button class="export-btn" onclick="exportBoardSabado()">
+						SAB <i class="fa fa-file-export"></i>
+					</button>
+					<button class="export-btn" onclick="exportBoardDomingo()">
+						DOM <i class="fa fa-file-export"></i>
+					</button>
+				</div>
+		</div>
+
+		<!-- Players -->
+		<div id="cadastro-inscritos">
+			<div id="inscritos">
+			<div class="inscritos-header">
+				<button class="add-btn" onclick="openAddModal()">
+					<i class="fa fa-plus"></i>
+				</button>
+				<label for="csvFile" class="csv-upload">
+					<i class="fa fa-plus"></i>
+					<i class="fa fa-file-csv"></i>
+				</label>
+				<button class="edit-btn" onclick="openEditModal()">
+					<i class="fa fa-edit"></i>
+				</button>
+			</div>
+			<input type="file" id="csvFile" accept=".csv" style="display:none" onchange="loadCSV()">
+			<div id="candidates"></div>
+			</div>
+		</div>
+  </div>
+  
+	<!-- Modal de cadastro -->
+	<div id="addModal" class="modal">
+		<div class="modal-content">
+			<span class="close" onclick="closeAddModal()">&times;</span>
+			<h3>Adicionar jogador</h3>
+			<div class="modal-row">
+				<input type="text" id="newName" placeholder="Nome do jogador">
+				<select id="newRole">
+					<option value="1">Tank</option>
+					<option value="2">Healer</option>
+					<option value="3">Nameless</option>
+					<option value="4">Dualblade</option>
+					<option value="5">Fanbrella</option>
+					<option value="6">Everspring</option>
+				</select>
+				<button class="save-btn" onclick="saveNewPlayer()">
+					<i class="fa fa-save"></i>
+				</button>
+			</div>
+		</div>
+	</div>
+	
+  <!-- Modal de edição -->
+  <div id="editModal" class="modal">
+	  <div class="modal-content">
+			<span class="close" onclick="closeEditModal()">&times;</span>
+			<h3>Editar jogador</h3>
+
+			<!-- Linha 1: dropdown para escolher o player -->
+			<div class="modal-row">
+				<select id="playerSelect" onchange="loadPlayerData()"></select>
+			</div>
+
+			<!-- Linha 2: campos de edição -->
+			<div class="modal-row">
+				<input type="text" id="editName" placeholder="Nome do jogador">
+				<select id="editRole">
+					<option value="1">Tank</option>
+					<option value="2">Healer</option>
+					<option value="3">Nameless</option>
+					<option value="4">Dualblade</option>
+					<option value="5">Fanbrella</option>
+					<option value="6">Everspring</option>
+				</select>
+				<button class="save-btn" onclick="savePlayerEdit()">
+					<i class="fa fa-save"></i>
+				</button>
+			</div>
+	  </div>
+	</div>
+  
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
